@@ -16,7 +16,11 @@ const Form = ({ onSubmit }: { onSubmit: (content: string) => void }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea value={content} onChange={(v) => setContent(v.target.value)} />
+      <textarea
+        placeholder={"paste here the content of your collection.json"}
+        value={content}
+        onChange={(v) => setContent(v.target.value)}
+      />
       <br />
       <button type="submit" className="btn btn-primary">
         Convert!
