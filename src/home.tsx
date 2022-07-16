@@ -1,8 +1,12 @@
 import { title, github } from "./config";
 
+import Content from "./content";
+
 export default () => (
   <>
     <h1>{title}</h1>
+
+    <Content />
 
     <p>
       <a href={github.url}>
