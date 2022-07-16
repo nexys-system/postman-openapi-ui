@@ -1,6 +1,6 @@
 import React from "react";
 import FileUpload from "./file-upload";
-import { isContent } from "./utils";
+import { isContent, loadExample } from "./utils";
 
 const Form = ({ onSubmit }: { onSubmit: (content: string) => void }) => {
   const [content, setContent] = React.useState<string | undefined>();
@@ -18,8 +18,7 @@ const Form = ({ onSubmit }: { onSubmit: (content: string) => void }) => {
   };
 
   const handleExample = async () => {
-    const r = await fetch("/postman-openapi-ui/example.json");
-    const t = await r.text();
+    const t = await loadExample();
     setContent(t);
   };
 
@@ -71,11 +70,13 @@ const Form = ({ onSubmit }: { onSubmit: (content: string) => void }) => {
         {!!error && <div className="invalid-feedback">{error}</div>}
       </div>
 
-      <div className="mb-3">
-        <button type="submit" className="btn btn-primary">
-          Convert!
-        </button>
-      </div>
+      {isContent(content) && (
+        <div className="mb-3">
+          <button type="submit" className="btn btn-primary">
+            <i className="fa fa-rocket"></i> Convert!
+          </button>
+        </div>
+      )}
     </form>
   );
 };

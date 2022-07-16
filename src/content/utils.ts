@@ -26,3 +26,10 @@ export const saveByteArray = (
   link.setAttribute("download", fileName);
   link.click();
 };
+
+export const loadExample = async () => {
+  const pathPrefix = "/postman-openapi-ui";
+  const examplePath = pathPrefix + "/example.json";
+  const r = await fetch(examplePath);
+  return r.text();
+};
