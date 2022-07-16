@@ -15,10 +15,9 @@ jobs:
       - name: remove fs dep from lib
         run: ls node_modules/postman-to-openapi/lib
       - name: sed1
-        run: sed -i 's/const { promises:/\/\//' node_modules/postman-to-openapi/lib/index.js
-      - name: fds
-        run: sed -i 's/const { promises:/\/\//' node_modules/postman-to-openapi/lib/index.js  > node_modules/postman-to-openapi/lib/index.js
-      - run: head node_modules/postman-to-openapi/lib/index.js
+        run: sed -i 's/const { promises:/\/\//' node_modules/postman-to-openapi/lib/index.js  > temp.js
+      - name: sed2  (cp)
+        run: cp temp.js node_modules/postman-to-openapi/lib/index.js
       - run: yarn test
       - name: Build
         run: yarn build
