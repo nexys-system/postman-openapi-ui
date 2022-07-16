@@ -14,9 +14,9 @@ jobs:
       - run: yarn
       - name: remove fs dep from lib
         run: ls node_modules/postman-to-openapi/lib
-      - name: sed1
+      - name: sed (1/2)
         run: sed 's/const { promises:/\/\//' node_modules/postman-to-openapi/lib/index.js  > temp.js
-      - name: sed2  (cp)
+      - name: sed (2/2)
         run: cp temp.js node_modules/postman-to-openapi/lib/index.js
       - run: yarn test
       - name: Build
