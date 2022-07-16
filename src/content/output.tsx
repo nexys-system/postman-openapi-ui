@@ -1,3 +1,5 @@
+import { saveByteArray } from "./utils";
+
 const Output = ({
   output,
   onReset,
@@ -8,6 +10,12 @@ const Output = ({
   const handleCopy = async () => {
     await navigator.clipboard.writeText(output || "");
     alert("copied to clipboard");
+  };
+
+  const handleDownload = () => {
+    // https://stackoverflow.com/a/332163/1659569
+    const contentType = "text/x-yaml";
+    saveByteArray("openapi-generated.yml", output, contentType);
   };
 
   return (
@@ -29,6 +37,15 @@ const Output = ({
             onClick={onReset}
           >
             <i className="fa fa-rotate"></i>&nbsp;Reset
+          </button>
+        </li>
+        <li className="list-inline-item">
+          <button
+            className="btn btn-secondary btn-sm"
+            type="button"
+            onClick={handleDownload}
+          >
+            <i className="fa fa-file-arrow-down"></i>&nbsp;Download File
           </button>
         </li>
       </ul>
