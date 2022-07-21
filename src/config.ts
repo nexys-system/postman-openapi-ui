@@ -10,6 +10,6 @@ const ghUrl = "https://github.com/nexys-system/postman-openapi-ui";
 
 export const github = {
   sha: `${ghUrl}/commit/${sha}`,
-  version: `${ghUrl}/release/tag/${version}`,
+  version: `${ghUrl}/releases/tag/${version}`,
   url: ghUrl,
 };
