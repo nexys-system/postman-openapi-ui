@@ -6,7 +6,7 @@ export default () => (
     <div className="container">
       <p>
         <small>
-          <a href={github.sha}>{version}</a>
+          <a href={github.version}>{version}</a>
         </small>
       </p>
     </div>
