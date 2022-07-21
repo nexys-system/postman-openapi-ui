@@ -1,7 +1,7 @@
 {
   "name": "postman-openapi-ui",
   "license": "MIT",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
